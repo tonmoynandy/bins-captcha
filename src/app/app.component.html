@@ -1,0 +1,9 @@
+<hello name="{{ name }}"></hello>
+<app-captcha [config]="captchaConfig" ></app-captcha>
+
+
+<div >
+  <input type="text" [(ngModel)]="captch_code" />
+  <input type="button" value="Check Captcha" (click)="checkCaptcha()" />
+</div>
+

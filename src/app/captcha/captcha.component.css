@@ -23,9 +23,12 @@
   text-decoration: none;
   color:#222;
 }
-.powered-by {
+
+.captcha-container .powered-by {
   font-size:11px;
   font-family: Arial;
   color:#CCC;
   padding:5px;
+  display: block !important;
 }
+

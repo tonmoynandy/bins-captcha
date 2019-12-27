@@ -1,10 +1,12 @@
 import { NgModule, ModuleWithProviders  } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { CaptchaComponent } from './captcha.component';
 import {CaptchaService} from './captcha.service';
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   declarations: [CaptchaComponent],
   exports:[CaptchaComponent],

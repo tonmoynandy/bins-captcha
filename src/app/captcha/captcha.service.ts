@@ -6,10 +6,10 @@ import {BehaviorSubject} from 'rxjs';
 export class CaptchaService {
   
   captchSource = new BehaviorSubject(null);
-  captchCode = this.captchSource.asObservable(); 
+  captchStatus = this.captchSource.asObservable(); 
   constructor() { }
 
-  setCaptchaCode(code) {
+  setCaptchaStatus(code) {
     this.captchSource.next(code);
   }
 

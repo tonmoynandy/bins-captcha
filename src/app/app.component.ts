@@ -12,6 +12,7 @@ export class AppComponent  {
   
   captchaConfig:any = {
     length:6, 
+    cssClass:'custom',
     back: {
      stroke:"#2F9688",
      solid:"#f2efd2"
@@ -23,18 +24,16 @@ export class AppComponent  {
   };
 
   constructor(private captchaService:CaptchaService) {
-    this.captchaService.captchCode.subscribe((code)=>{
-      this.captchaCode = code;
+    this.captchaService.captchStatus.subscribe((status)=>{
+      this.captchaCode = status;
+      if (status == false) {
+          alert("Opps!\nCaptcha mismatch")
+      } else if (status == false)  {
+          alert("Success!\nYou are right")
+      }
     });
   }
 
 
-  checkCaptcha() {
 
-    if (this.captch_code !== this.captchaCode) {
-      alert("Opps!\nCaptcha mismatch")
-    } else  {
-      alert("Success!\nYou are right")
-    }
-  }
 }

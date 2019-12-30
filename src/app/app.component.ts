@@ -11,6 +11,7 @@ export class AppComponent  {
   captchaCode:any = '';
   
   captchaConfig:any = {
+    // type:2,
     length:6, 
     cssClass:'custom',
     back: {
@@ -28,7 +29,7 @@ export class AppComponent  {
       this.captchaCode = status;
       if (status == false) {
           alert("Opps!\nCaptcha mismatch")
-      } else if (status == false)  {
+      } else if (status == true)  {
           alert("Success!\nYou are right")
       }
     });

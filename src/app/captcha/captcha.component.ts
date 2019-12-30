@@ -36,6 +36,10 @@ export class CaptchaComponent implements OnChanges {
       if (!this.config.cssClass) {
         this.config["cssClass"] = '';
       }
+
+      if (!this.config.type) {
+        this.config["type"] = 1;
+      }
       
       if (!this.config.back || !this.config.back.stroke) {
         this.config["back"]["stroke"] = "";
@@ -48,14 +52,29 @@ export class CaptchaComponent implements OnChanges {
     }
   }
   createCaptcha() {
-    let char =
+
+    switch(this.config.type) {
+      case 1:
+  
+      let char =
       Math.random()
         .toString(24)
         .substring(2, this.config.length) +
       Math.random()
         .toString(24)
         .substring(2, 4);
-    this.code = this.resultCode = char.toUpperCase();
+      this.code = this.resultCode = char.toUpperCase();
+      break;
+      case 2:
+      let num1 = Math.floor(Math.random() * 99);
+      let num2 = Math.floor(Math.random() * 9);
+      let operators = ['+','-'];
+      let operator = operators[(Math.floor(Math.random() * operators.length))];
+      this.code =  num1+operator+num2+'=?';
+      this.resultCode = (operator == '+')? (num1+num2):(num1-num2);
+      break;
+    }
+    
 
     setTimeout(() => {
       let captcahCanvas: any = document.getElementById("captcahCanvas");
@@ -90,13 +109,11 @@ export class CaptchaComponent implements OnChanges {
   }
 
   checkCaptcha() {
-
-    if (this.captch_input !== this.resultCode) {
+    if (this.captch_input != this.resultCode) {
       this.captchService.setCaptchaStatus(false);
-      alert("Opps!\nCaptcha mismatch")
+      
     } else  {
       this.captchService.setCaptchaStatus(true);
-      alert("Success!\nYou are right")
     }
   }
 }

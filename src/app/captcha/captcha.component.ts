@@ -54,7 +54,7 @@ export class CaptchaComponent implements OnChanges {
   createCaptcha() {
 
     switch(this.config.type) {
-      case 1:
+      case 1: // only alpha numaric degits to type
   
       let char =
       Math.random()
@@ -65,7 +65,7 @@ export class CaptchaComponent implements OnChanges {
         .substring(2, 4);
       this.code = this.resultCode = char.toUpperCase();
       break;
-      case 2:
+      case 2: // solve the calculation 
       let num1 = Math.floor(Math.random() * 99);
       let num2 = Math.floor(Math.random() * 9);
       let operators = ['+','-'];

@@ -11,7 +11,7 @@ export class AppComponent  {
   captchaCode:any = '';
   
   captchaConfig:any = {
-    // type:2,
+    type:2, 
     length:6, 
     cssClass:'custom',
     back: {

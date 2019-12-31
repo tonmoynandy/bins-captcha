@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {CaptchaService} from './captcha/captcha.service';
+import {NgxCaptchaService} from '@binssoft/ngx-captcha';
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
@@ -24,7 +24,7 @@ export class AppComponent  {
     }
   };
 
-  constructor(private captchaService:CaptchaService) {
+  constructor(private captchaService:NgxCaptchaService) {
     this.captchaService.captchStatus.subscribe((status)=>{
       this.captchaCode = status;
       if (status == false) {

@@ -5,10 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 
-import {CaptchaModule} from './captcha/captcha.module';
+import {NgxCaptchaModule} from '@binssoft/ngx-captcha';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, CaptchaModule.forRoot() ],
+  imports:      [ BrowserModule, FormsModule, NgxCaptchaModule ],
   declarations: [ AppComponent, HelloComponent ],
   bootstrap:    [ AppComponent ]
 })

@@ -6,9 +6,8 @@ import {NgxCaptchaService} from '@binssoft/ngx-captcha';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  name = 'Bins Captcha';
-  captch_code:any = '';
-  captchaCode:any = '';
+  name = '@binssoft/ngx-captcha';
+  captchaStatus:any = '';
   
   captchaConfig:any = {
     type:2, 
@@ -26,7 +25,7 @@ export class AppComponent  {
 
   constructor(private captchaService:NgxCaptchaService) {
     this.captchaService.captchStatus.subscribe((status)=>{
-      this.captchaCode = status;
+      this.captchaStatus = status;
       if (status == false) {
           alert("Opps!\nCaptcha mismatch")
       } else if (status == true)  {
